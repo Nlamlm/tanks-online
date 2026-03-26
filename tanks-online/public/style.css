@@ -1,0 +1,126 @@
+/* Сбрасываем стандартные отступы браузера и скрываем полосы прокрутки */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Чтобы не было скролла при движении танка */
+    background-color: #1a1a1a; /* Темно-серый фон вокруг карты */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* Стили для главного меню */
+#menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 30, 30, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    border: 2px solid #444;
+    z-index: 10; /* Меню всегда поверх всего */
+    min-width: 300px;
+}
+
+#menu h1 {
+    margin-top: 0;
+    color: #f1c40f;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 32px;
+}
+
+.menu-block {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-block label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+select {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #666;
+    background-color: #2b2b2b;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #e74c3c;
+}
+
+/* Кнопка "В БОЙ" */
+#startBtn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 6px 0 #c0392b; /* Эффект объемной кнопки */
+    text-transform: uppercase;
+}
+
+#startBtn:hover {
+    background-color: #ff5e4d;
+}
+
+#startBtn:active {
+    transform: translateY(4px); /* Кнопка "нажимается" вниз */
+    box-shadow: 0 2px 0 #c0392b;
+}
+
+/* Игровой холст */
+#gameCanvas {
+    display: none; /* Скрыт до нажатия кнопки "В БОЙ" */
+    cursor: crosshair; /* Курсор в виде прицела */
+}
+
+/* Эпичная победная надпись */
+#winText {
+    display: none; /* Скрыта по умолчанию */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: 900;
+    color: gold;
+    text-align: center;
+    white-space: nowrap;
+    text-shadow: 
+        4px 4px 0 #000,
+        -2px -2px 0 #000,  
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        0 0 40px red, /* Мощное красное свечение */
+        0 0 80px orange;
+    z-index: 20; /* Поверх всего */
+    animation: pulse 1.5s infinite; /* Анимация пульсации */
+}
+
+/* Анимация пульсации для победного текста */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}

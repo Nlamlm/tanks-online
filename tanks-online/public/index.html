@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Танки Онлайн 2D - Братан Эдишн</title>
+    
+    <!-- Подключаем отдельный файл с дизайном (CSS) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Главное меню игры -->
+    <div id="menu">
+        <h1>Танки: Мультиплеер</h1>
+        
+        <div class="menu-block">
+            <label for="tankSelect">Выбери танк:</label>
+            <select id="tankSelect">
+                <option value="light">Лёгкий (Быстрый, мало ХП)</option>
+                <option value="heavy">Тяжёлый (Медленный, много ХП)</option>
+            </select>
+        </div>
+
+        <div class="menu-block">
+            <label for="mapSelect">Выбери карту:</label>
+            <select id="mapSelect">
+                <option value="desert">Пустыня (Открытая)</option>
+                <option value="city">Город (С препятствиями)</option>
+            </select>
+        </div>
+
+        <button id="startBtn">В БОЙ!</button>
+    </div>
+
+    <!-- Игровой холст (здесь будет отрисовываться графика) -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Скрытое сообщение о победе -->
+    <div id="winText">ТЫ ПОБЕДИЛ БРАТАН!</div>
+
+    <!-- Подключаем библиотеку Socket.io для игры по сети -->
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <!-- Подключаем отдельный файл с логикой игры для браузера (JS) -->
+    <script src="client.js"></script>
+</body>
+</html>
