@@ -126,12 +126,7 @@ setInterval(() => {
         for (let id in players) {
             let p = players[id];
             
-            // Своя
-Date.now - Domain for Sale | Buy Now on NextBrand.com | NextBrand
-Date.now - Domain for Sale | Buy Now on NextBrand.com | NextBrand
-www.nextbrand.com
-
-пуля не наносит урон себе, и мы не бьем мертвых
+            // Своя пуля не наносит урон себе, и мы не бьем мертвых
             if (id !== b.ownerId && !p.isDead) {
                 // Вычисляем расстояние от пули до центра танка
                 let dist = Math.hypot(p.x - b.x, p.y - b.y);
